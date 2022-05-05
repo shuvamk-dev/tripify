@@ -5,6 +5,9 @@ export const COLORS = {
   ORANGE_FADED: '#F8F1F1',
   WHITE: '#fff',
   BLACK: '#000',
+  ORANGE_SECOND: '#FF8083',
+  TEXT: '#2F4858',
+  FADED_TEXT: '#677987',
 };
 
 export const CATEGORY_BG = {

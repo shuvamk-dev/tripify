@@ -85,15 +85,12 @@ const HomeScreen = ({navigation}) => {
       <View>
         <View style={styles.homeHeader}>
           <Text style={styles.heading}>Tripify</Text>
-          <View>
-            <Text>DM</Text>
-          </View>
         </View>
         <View style={styles.bannerContainer}>
           <Image source={IMAGES.TRIPIFY_BANNER} style={styles.banner} />
           <TouchableOpacity onPress={() => navigation.navigate('Add Trip')}>
             <View style={styles.addTripButton}>
-              <Text>Add New Trip</Text>
+              <Text style={styles.addButtonText}>Add New Trip</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -126,6 +123,10 @@ const HomeScreen = ({navigation}) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  addButtonText: {
+    fontWeight: '700',
+    color: COLORS.TEXT,
+  },
   addTripButton: {
     position: 'absolute',
     paddingVertical: 12,
@@ -155,6 +156,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 28,
     fontWeight: '600',
+    color: COLORS.TEXT,
   },
   homeHeader: {
     display: 'flex',
@@ -174,6 +176,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 12,
     fontWeight: '700',
+    color: COLORS.TEXT,
   },
   tripBanner: {
     height: 150,

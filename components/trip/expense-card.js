@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   amount: {
     fontSize: 16,
     fontWeight: '600',
+    color: COLORS.TEXT,
   },
   cardWrapper: {
     paddingVertical: 12,
@@ -41,9 +42,11 @@ const styles = StyleSheet.create({
   expenseTitle: {
     fontSize: 16,
     fontWeight: '500',
+    color: COLORS.TEXT,
   },
   expenseCategory: {
     fontSize: 12,
     marginVertical: 4,
+    color: COLORS.FADED_TEXT,
   },
 });

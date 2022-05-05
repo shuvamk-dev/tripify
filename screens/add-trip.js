@@ -108,10 +108,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 12,
     borderRadius: 18,
+    color: COLORS.TEXT,
   },
 
   subHeading: {
     fontSize: 20,
     fontWeight: '600',
+    color: COLORS.TEXT,
   },
 });

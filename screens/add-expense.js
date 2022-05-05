@@ -157,11 +157,13 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 18,
     fontWeight: '600',
+    color: COLORS.TEXT,
   },
   subHeading: {
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '700',
+    color: COLORS.TEXT,
   },
   subHeadingContainer: {
     position: 'absolute',

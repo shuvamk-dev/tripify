@@ -161,5 +161,6 @@ const styles = StyleSheet.create({
   subHeading: {
     fontSize: 18,
     fontWeight: '600',
+    color: COLORS.TEXT,
   },
 });

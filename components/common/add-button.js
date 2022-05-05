@@ -17,14 +17,14 @@ export default AddButton;
 
 const styles = StyleSheet.create({
   addButton: {
-    backgroundColor: COLORS.WHITE,
+    backgroundColor: COLORS.ORANGE_SECOND,
     paddingVertical: 12,
     borderRadius: 18,
     display: 'flex',
     alignItems: 'center',
   },
   btnText: {
-    color: COLORS.DARK_ORANGE,
+    color: COLORS.WHITE,
     fontSize: 20,
     fontWeight: '700',
   },
