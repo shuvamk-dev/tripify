@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import React from 'react';
 import ScreenWrapper from '../components/common/screen-wrapper';
-import AddButton from '../components/common/add-button';
 import BackButton from '../components/common/back-button';
 import {COLORS} from '../theme/theme';
 import ExpenseCard from '../components/trip/expense-card';

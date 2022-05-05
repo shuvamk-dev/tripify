@@ -11,6 +11,8 @@ import ScreenWrapper from '../components/common/screen-wrapper';
 
 import {IMAGES, RANDOM_THUMBNAIL} from '../assets/assets';
 import {COLORS} from '../theme/theme';
+import {useSelector} from 'react-redux';
+import EmptyList from '../components/home/empty-list';
 
 const TRIPSDATA = [
   {
@@ -76,6 +78,8 @@ const TRIPSDATA = [
 ];
 
 const HomeScreen = ({navigation}) => {
+  const tripsList = useSelector(state => state.trips.trips);
+
   return (
     <ScreenWrapper>
       <View>
@@ -99,7 +103,7 @@ const HomeScreen = ({navigation}) => {
         <FlatList
           columnWrapperStyle={styles.tripsList}
           showsVerticalScrollIndicator={false}
-          data={TRIPSDATA}
+          data={tripsList}
           renderItem={({item}) => (
             <TouchableOpacity
               onPress={() => navigation.navigate('Trip Expenses', item)}>
@@ -112,6 +116,7 @@ const HomeScreen = ({navigation}) => {
           )}
           keyExtractor={item => item.id}
           numColumns={2}
+          ListEmptyComponent={<EmptyList />}
         />
       </View>
     </ScreenWrapper>
