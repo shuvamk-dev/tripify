@@ -12,17 +12,29 @@ import BackButton from '../components/common/back-button';
 import {RANDOM_THUMBNAIL} from '../assets/assets';
 import {COLORS} from '../theme/theme';
 import AddButton from '../components/common/add-button';
+import {useDispatch} from 'react-redux';
+import {addTrip} from '../redux/slice/trips';
 
 const AddTripScreen = ({navigation}) => {
   const [placeBanner, setPlaceBanner] = useState();
   const [place, setPlace] = useState('');
   const [country, setCountry] = useState('');
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     setPlaceBanner(RANDOM_THUMBNAIL());
   }, []);
 
   const handleTripAdd = () => {
+    const tripId = Date.now();
+    const tripData = {
+      id: tripId,
+      place,
+      country,
+      banner: placeBanner,
+    };
+    dispatch(addTrip(tripData));
     navigation.navigate('Home');
   };
   return (
