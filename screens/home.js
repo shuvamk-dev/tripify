@@ -101,7 +101,8 @@ const HomeScreen = ({navigation}) => {
           showsVerticalScrollIndicator={false}
           data={TRIPSDATA}
           renderItem={({item}) => (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Trip Expenses', item)}>
               <View style={styles.tripCard}>
                 <Image source={item.banner} style={styles.tripBanner} />
                 <Text style={styles.place}>{item.place}</Text>
