@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import ScreenWrapper from '../components/common/screen-wrapper';
 import AddButton from '../components/common/add-button';
@@ -78,7 +85,12 @@ const TripExpenses = ({navigation, route}) => {
             <Text style={styles.place}>{selectedTrip.place}</Text>
           </View>
         </View>
-        <Text style={styles.subHeading}>Expenses</Text>
+        <View style={styles.txtBtn}>
+          <Text style={styles.subHeading}>Expenses</Text>
+          <TouchableOpacity>
+            <Text>Add Expense</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.flatlistContainer}>
           <FlatList
             showsVerticalScrollIndicator={false}
@@ -123,9 +135,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: -20,
   },
-  subHeading: {
+  txtBtn: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginTop: 32,
-    marginBottom: 16,
+    marginBottom: 24,
+  },
+  subHeading: {
     fontSize: 18,
     fontWeight: '600',
   },

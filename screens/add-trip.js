@@ -21,6 +21,9 @@ const AddTripScreen = ({navigation}) => {
     setPlaceBanner(RANDOM_THUMBNAIL());
   }, []);
 
+  const handleTripAdd = () => {
+    navigation.navigate('Home');
+  };
   return (
     <ScreenWrapper>
       <View style={styles.addTripWrapper}>
@@ -50,9 +53,9 @@ const AddTripScreen = ({navigation}) => {
             </View>
           </View>
         </View>
-        <TouchableOpacity>
-          <View>
-            <Text>Add Trip</Text>
+        <TouchableOpacity onPress={handleTripAdd}>
+          <View style={styles.addButton}>
+            <Text style={styles.btnText}>Add Trip</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -63,6 +66,13 @@ const AddTripScreen = ({navigation}) => {
 export default AddTripScreen;
 
 const styles = StyleSheet.create({
+  addButton: {
+    backgroundColor: COLORS.WHITE,
+    paddingVertical: 12,
+    borderRadius: 18,
+    display: 'flex',
+    alignItems: 'center',
+  },
   addTripWrapper: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -78,7 +88,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
+  btnText: {
+    color: COLORS.DARK_ORANGE,
+    fontSize: 20,
+    fontWeight: '700',
+  },
   form: {
     marginVertical: 24,
   },
