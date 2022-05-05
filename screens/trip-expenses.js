@@ -77,7 +77,6 @@ const TripExpenses = ({navigation, route}) => {
   const expenses = useSelector(state => {
     const trips = state.trips.trips;
     const expensesToBeShown = trips.filter(trip => trip.id === selectedTrip.id);
-    console.log(expensesToBeShown, 'herer');
     if (expensesToBeShown.length > 0) {
       return expensesToBeShown[0].expenses;
     }
