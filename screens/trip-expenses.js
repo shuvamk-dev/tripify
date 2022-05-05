@@ -88,7 +88,7 @@ const TripExpenses = ({navigation, route}) => {
           <Text style={styles.subHeading}>Expenses</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('Add Expense', selectedTrip)}>
-            <Text>Add Expense</Text>
+            <Text style={styles.buttonText}>Add Expense</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.flatlistContainer}>
@@ -117,6 +117,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
+  },
+  buttonText: {
+    color: COLORS.DARK_ORANGE,
+    fontWeight: '700',
   },
   flatlistContainer: {
     height: 420,
