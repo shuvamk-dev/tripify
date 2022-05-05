@@ -1,17 +1,31 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {COLORS} from '../../theme/theme';
 
 const AddButton = props => {
   const {buttonText, onPress} = props;
   return (
-    <View>
-      <TouchableOpacity onPress={onPress}>
-        <Text>{buttonText ? buttonText : 'ADD'}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.addButton}>
+        <Text style={styles.btnText}>{buttonText ? buttonText : 'ADD'}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
 export default AddButton;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  addButton: {
+    backgroundColor: COLORS.WHITE,
+    paddingVertical: 12,
+    borderRadius: 18,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  btnText: {
+    color: COLORS.DARK_ORANGE,
+    fontSize: 20,
+    fontWeight: '700',
+  },
+});

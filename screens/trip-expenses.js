@@ -77,7 +77,6 @@ const TripExpenses = ({navigation, route}) => {
     <ScreenWrapper>
       <View>
         <BackButton onPress={() => navigation.goBack()} />
-
         <View style={styles.bannerContainer}>
           <Image source={selectedTrip.banner} style={styles.banner} />
 
@@ -87,7 +86,8 @@ const TripExpenses = ({navigation, route}) => {
         </View>
         <View style={styles.txtBtn}>
           <Text style={styles.subHeading}>Expenses</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Add Expense', selectedTrip)}>
             <Text>Add Expense</Text>
           </TouchableOpacity>
         </View>

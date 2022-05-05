@@ -4,4 +4,5 @@ export const COLORS = {
   WHITE_TINT: '#FDFDFD',
   ORANGE_FADED: '#F8F1F1',
   WHITE: '#fff',
+  BLACK: '#000',
 };

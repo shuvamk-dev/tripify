@@ -11,6 +11,7 @@ import ScreenWrapper from '../components/common/screen-wrapper';
 import BackButton from '../components/common/back-button';
 import {RANDOM_THUMBNAIL} from '../assets/assets';
 import {COLORS} from '../theme/theme';
+import AddButton from '../components/common/add-button';
 
 const AddTripScreen = ({navigation}) => {
   const [placeBanner, setPlaceBanner] = useState();
@@ -53,11 +54,8 @@ const AddTripScreen = ({navigation}) => {
             </View>
           </View>
         </View>
-        <TouchableOpacity onPress={handleTripAdd}>
-          <View style={styles.addButton}>
-            <Text style={styles.btnText}>Add Trip</Text>
-          </View>
-        </TouchableOpacity>
+
+        <AddButton buttonText={'Add Trip'} onPress={handleTripAdd} />
       </View>
     </ScreenWrapper>
   );
@@ -66,13 +64,6 @@ const AddTripScreen = ({navigation}) => {
 export default AddTripScreen;
 
 const styles = StyleSheet.create({
-  addButton: {
-    backgroundColor: COLORS.WHITE,
-    paddingVertical: 12,
-    borderRadius: 18,
-    display: 'flex',
-    alignItems: 'center',
-  },
   addTripWrapper: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -88,11 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  btnText: {
-    color: COLORS.DARK_ORANGE,
-    fontSize: 20,
-    fontWeight: '700',
-  },
+
   form: {
     marginVertical: 24,
   },
