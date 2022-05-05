@@ -33,10 +33,12 @@ const AddTripScreen = ({navigation}) => {
       place,
       country,
       banner: placeBanner,
+      expenses: [],
     };
     dispatch(addTrip(tripData));
     navigation.navigate('Home');
   };
+
   return (
     <ScreenWrapper>
       <View style={styles.addTripWrapper}>

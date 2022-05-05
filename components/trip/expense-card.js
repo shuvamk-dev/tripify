@@ -1,10 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../theme/theme';
+import {CATEGORY_BG, COLORS} from '../../theme/theme';
 
 const ExpenseCard = ({expense}) => {
   return (
-    <View style={styles.cardWrapper}>
+    <View
+      style={{
+        ...styles.cardWrapper,
+        backgroundColor: CATEGORY_BG[expense.category],
+      }}>
       <View>
         <Text style={styles.expenseTitle}>{expense.title}</Text>
         <Text style={styles.expenseCategory}>{expense.category}</Text>

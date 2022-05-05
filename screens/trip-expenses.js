@@ -11,36 +11,38 @@ import ScreenWrapper from '../components/common/screen-wrapper';
 import BackButton from '../components/common/back-button';
 import {COLORS} from '../theme/theme';
 import ExpenseCard from '../components/trip/expense-card';
+import EmptyExpenses from '../components/trip/empty-expenses';
+import {useSelector} from 'react-redux';
 
 const EXPENSES = [
   {
     id: 1,
     title: 'BOught Chips i=on the way',
-    category: 'FOOD',
+    category: 'Food',
     amount: 2345,
   },
   {
     id: 2,
     title: 'BOught Chips i=on the way',
-    category: 'FOOD',
+    category: 'Shopping',
     amount: 2345,
   },
   {
     id: 3,
     title: 'BOught Chips i=on the way',
-    category: 'FOOD',
+    category: 'Commute',
     amount: 2345,
   },
   {
     id: 4,
     title: 'BOught Chips i=on the way',
-    category: 'FOOD',
+    category: 'Entertainment',
     amount: 2345,
   },
   {
     id: 5,
     title: 'BOught Chips i=on the way',
-    category: 'FOOD',
+    category: 'Other',
     amount: 2345,
   },
   {
@@ -71,7 +73,17 @@ const EXPENSES = [
 
 const TripExpenses = ({navigation, route}) => {
   const selectedTrip = route.params;
-  console.log(selectedTrip);
+
+  const expenses = useSelector(state => {
+    const trips = state.trips.trips;
+    const expensesToBeShown = trips.filter(trip => trip.id === selectedTrip.id);
+    console.log(expensesToBeShown, 'herer');
+    if (expensesToBeShown.length > 0) {
+      return expensesToBeShown[0].expenses;
+    }
+    return [];
+  });
+
   return (
     <ScreenWrapper>
       <View>
@@ -93,9 +105,10 @@ const TripExpenses = ({navigation, route}) => {
         <View style={styles.flatlistContainer}>
           <FlatList
             showsVerticalScrollIndicator={false}
-            data={EXPENSES}
+            data={expenses}
             renderItem={({item}) => <ExpenseCard expense={item} />}
             keyExtractor={item => item.id}
+            ListEmptyComponent={<EmptyExpenses />}
           />
         </View>
       </View>

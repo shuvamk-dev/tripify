@@ -9,24 +9,16 @@ export const tripsSlice = createSlice({
   initialState: initialTripsState,
   reducers: {
     addTrip: (state, action) => {
-      const updatedTripsList = [...state.trips, action.payload];
-      return {
-        ...state,
-        trips: updatedTripsList,
-      };
+      state.trips = [...state.trips, action.payload];
     },
     addExpense: (state, action) => {
       const tripId = action.payload.tripId;
-      const updatedTripsList = state.trips.map(trip => {
+      state.trips = state.trips.map(trip => {
         if (trip.id === tripId) {
           trip.expenses = [...trip.expenses, action.payload.expense];
         }
         return trip;
       });
-      return {
-        ...state,
-        trips: updatedTripsList,
-      };
     },
   },
 });

@@ -6,3 +6,11 @@ export const COLORS = {
   WHITE: '#fff',
   BLACK: '#000',
 };
+
+export const CATEGORY_BG = {
+  Food: '#E1D3EE',
+  Shopping: '#B0E3D3',
+  Commute: '#ECFAD7',
+  Entertainment: '#FFDFDD',
+  Other: '#CAD3E9',
+};

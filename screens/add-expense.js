@@ -12,14 +12,35 @@ import AddButton from '../components/common/add-button';
 import BackButton from '../components/common/back-button';
 import {IMAGES} from '../assets/assets';
 import {COLORS} from '../theme/theme';
+import {useDispatch} from 'react-redux';
+import {addExpense} from '../redux/slice/trips';
 
-const CATEGORIES = ['Shoppping', 'Food', 'Commute', 'Entertainment', 'Other'];
+const CATEGORIES = ['Shopping', 'Food', 'Commute', 'Entertainment', 'Other'];
 
 const AddExpenseScreen = ({navigation, route}) => {
   const selectedTrip = route.params;
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(0);
-  const [category, setCategory] = useState('Shopping');
+  const [category, setCategory] = useState('');
+
+  const dispatch = useDispatch();
+
+  const handleExpenseAdded = () => {
+    const expense = {
+      id: Date.now(),
+      title,
+      amount,
+      category,
+    };
+
+    const data = {
+      tripId: selectedTrip.id,
+      expense,
+    };
+
+    dispatch(addExpense(data));
+    navigation.navigate('Trip Expenses', selectedTrip);
+  };
 
   return (
     <ScreenWrapper>
@@ -76,9 +97,7 @@ const AddExpenseScreen = ({navigation, route}) => {
             </View>
           </View>
         </View>
-        <AddButton
-          onPress={() => navigation.navigate('Trip Expenses', selectedTrip)}
-        />
+        <AddButton onPress={handleExpenseAdded} />
       </View>
     </ScreenWrapper>
   );
